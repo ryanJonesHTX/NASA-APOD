@@ -1,0 +1,124 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  background-color: rgba(0,0,0,0.9);
+  color: aliceblue;
+  font-family: 'Titillium Web', sans-serif;
+}
+h1, h2{
+  margin: .5rem;
+}
+h1{
+  color: rgb(155, 218, 241)
+}
+.flexit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  width: 80vw;
+}
+.input{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: .5rem 0;
+}
+input{
+  background-color: lightgray;
+  line-height: 1.5rem;
+  margin: .5rem;
+}
+button{
+  padding: 0 2rem;
+  line-height: 2rem;
+  background-color: rgba(43, 67, 137, 1);
+  color: aliceblue;
+  border-radius: .25rem;
+}
+button:hover{
+  background-color: rgba(43, 67, 137, .7);
+}
+button:first-of-type{
+  margin-right: .25rem;
+}
+a{
+  color:rgb(118, 133, 180);
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+img{
+  display: block;
+  margin: 1rem auto;
+  width: 60vw;
+  border-radius: 0.375rem;
+}
+iframe{
+  width: 60vw;
+  height: 60vh;
+}
+.expl{
+  font: 1.25em sans-serif;
+  text-align: justify;
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+span{
+  font-style: italic;
+  font-size: .75rem;
+  align-self: flex-end;
+  margin-right: 10vw;
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+@media all and (max-width: 700px) {
+  .flexit{
+    width: 96vw;
+  }
+  .input{
+    width: 80vw;
+    flex-direction: column;
+    margin: .25rem;
+  }
+  h2{
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  button:first-of-type{
+    margin-right: .1rem;
+    margin-bottom: .1rem;
+  }
+  img, iframe{
+    width: 96vw;
+  }
+  span{
+    margin-right: 1vw;
+  }
+  .expl{
+    width: 94vw;
+    font-size: .75rem;
+    line-height: 1.1rem;
+    text-align: left;
+  }
+}
