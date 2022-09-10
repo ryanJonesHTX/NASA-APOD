@@ -50,6 +50,10 @@ button{
   border: .05rem solid rgba(0,0,0,0.9);
 }
 button:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+button:active{
   background: linear-gradient(to top,  #003972 0%,#001322 100%);
 }
 button:first-of-type{
