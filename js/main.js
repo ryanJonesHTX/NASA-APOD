@@ -1,6 +1,17 @@
 //NASA API APOD
+
+//ADD LISTENERS
 document.querySelector('button').addEventListener('click', getFetch)
 document.querySelector('#random').addEventListener('click', getRandom)
+
+//Variables for DOM elements
+let title = document.querySelector('#title')
+let explanation = document.querySelector('.expl')
+let span = document.querySelector('span')
+let iframe = document.querySelector('iframe')
+let hdimg = document.querySelector('#hdimg')
+let img = document.querySelector('img')
+let currentDate = new Date().toLocaleDateString()
 
 //Get New
 function getFetch(){
@@ -13,31 +24,31 @@ function getFetch(){
       .then(data => {
         console.log(data)
         if(data.code === 404){
-          document.querySelector('#title').innerText = ''
-          document.querySelector('.expl').innerText = ''
+          title.innerText = ''
+          explanation.innerText = ''
         }else{
-        document.querySelector('#title').innerText = data.title
-        document.querySelector('.expl').innerText = data.explanation
+          title.innerText = data.title
+          explanation.innerText = data.explanation
         }
         if(data.copyright){
-          document.querySelector('span').innerText = `\u00A9 ${data.copyright}`
+          span.innerText = `\u00A9 ${data.copyright}`
         }else if(!data.copyright){
-          document.querySelector('span').innerText = ''
+          span.innerText = ''
         }
         if(data.media_type === "image"){
-          document.querySelector('iframe').style.display = 'none'
-          document.querySelector('#hdimg').className = 'show'
-          document.querySelector('#hdimg').href = data.hdurl
-          document.querySelector('img').src = data.url
-          document.querySelector('img').alt = data.title
+          iframe.className = 'hide'
+          img.className = 'show'
+          hdimg.className = 'show'
+          hdimg.href = data.hdurl
+          img.src = data.url
+          img.alt = data.title
         }else if(data.media_type === 'video'){
-          document.querySelector('#hdimg').className = 'hide'
-          document.querySelector('img').src = ''
-          document.querySelector('iframe').style.display = 'block'
-          document.querySelector('iframe').src = data.url
-          document.querySelector('img').alt = ''
+          hdimg.className = 'hide'
+          img.className = 'hide'
+          iframe.className = 'show'
+          iframe.src = data.url
         }else{
-          alert('Invalid date - Please enter a date between 06-16-1995 and today')
+          alert(`Invalid date - Please enter a date between 6/16/1995 and ${currentDate}`)
         }
       })
       .catch(err => {
@@ -48,29 +59,29 @@ function getFetch(){
 function getRandom(){
   const urlRand = 'https://api.nasa.gov/planetary/apod?api_key=64Gml2vYgNCRfT5hxsnl1UvZXW6tnQsaROWxUkJt&count=1'
 
-fetch(urlRand)
+    fetch(urlRand)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data[0])
-        document.querySelector('#title').innerText = `${data[0].date} - ${data[0].title}`
-        document.querySelector('.expl').innerText = data[0].explanation
+        title.innerText = `${data[0].date} - ${data[0].title}`
+        explanation.innerText = data[0].explanation
         if(data[0].copyright){
-          document.querySelector('span').innerText = `\u00A9 ${data[0].copyright}`
+          span.innerText = `\u00A9 ${data[0].copyright}`
         }else if(!data[0].copyright){
-          document.querySelector('span').innerText = ''
+          span.innerText = ''
         }
         if(data[0].media_type === "image"){
-          document.querySelector('iframe').style.display = 'none'
-          document.querySelector('#hdimg').className = 'show'
-          document.querySelector('#hdimg').href = data[0].hdurl
-          document.querySelector('img').src = data[0].url
-          document.querySelector('img').alt = data[0].title
+          iframe.className = 'hide'
+          img.className = 'show'
+          hdimg.className = 'show'
+          hdimg.href = data[0].hdurl
+          img.src = data[0].url
+          img.alt = data[0].title
         }else if(data[0].media_type === 'video'){
-          document.querySelector('#hdimg').className = 'hide'
-          document.querySelector('img').src = ''
-          document.querySelector('img').alt = ''
-          document.querySelector('iframe').style.display = 'block'
-          document.querySelector('iframe').src = data[0].url
+          hdimg.className = 'hide'
+          img.className = 'hide'
+          iframe.className= 'show'
+          iframe.src = data[0].url
         }
       })
       .catch(err => {

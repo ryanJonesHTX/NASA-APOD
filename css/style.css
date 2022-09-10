@@ -12,14 +12,14 @@
 /*******************************************/
 body{
   background-color: rgba(0,0,0,0.9);
-  color: aliceblue;
+  color: rgb(221, 236, 248);
   font-family: 'Titillium Web', sans-serif;
 }
 h1, h2{
   margin: .5rem;
 }
 h1{
-  color: rgb(155, 218, 241)
+  color: #004e9b;
 }
 .flexit{
   display: flex;
@@ -43,12 +43,14 @@ input{
 button{
   padding: 0 2rem;
   line-height: 2rem;
-  background-color: rgba(43, 67, 137, 1);
+  background-color: #003972;
+  background: linear-gradient(to bottom,  #003972 0%,#001322 100%);
   color: aliceblue;
   border-radius: .25rem;
+  border: .05rem solid rgba(0,0,0,0.9);
 }
 button:hover{
-  background-color: rgba(43, 67, 137, .7);
+  background: linear-gradient(to top,  #003972 0%,#001322 100%);
 }
 button:first-of-type{
   margin-right: .25rem;
@@ -97,7 +99,7 @@ span{
     width: 96vw;
   }
   .input{
-    width: 80vw;
+    width: 70vw;
     flex-direction: column;
     margin: .25rem;
   }
@@ -106,18 +108,21 @@ span{
     font-size: 1.2rem;
   }
   button:first-of-type{
-    margin-right: .1rem;
-    margin-bottom: .1rem;
+    margin-right: 0;
+    margin-bottom: .2rem;
   }
   img, iframe{
     width: 96vw;
+  }
+  iframe{
+    height: 60vh;
   }
   span{
     margin-right: 1vw;
   }
   .expl{
     width: 94vw;
-    font-size: .75rem;
+    font-size: .85rem;
     line-height: 1.1rem;
     text-align: left;
   }
