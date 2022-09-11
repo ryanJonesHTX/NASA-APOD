@@ -26,6 +26,8 @@ function getFetch(){
         if(data.code === 400){
           title.innerText = ''
           explanation.innerText = ''
+          img.className = 'hide'
+          hdimg.className = 'hide'
         }else{
           title.innerText = data.title
           explanation.innerText = data.explanation
