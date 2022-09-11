@@ -78,7 +78,7 @@ iframe{
 }
 .expl{
   font: 1.25em sans-serif;
-  text-align: justify;
+  text-align: left;
 }
 .show{
   display: block;
@@ -127,7 +127,7 @@ span{
   .expl{
     width: 94vw;
     font-size: .85rem;
-    line-height: 1.1rem;
+    line-height: 1.2rem;
     text-align: left;
   }
 }

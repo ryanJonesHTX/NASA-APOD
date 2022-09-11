@@ -23,7 +23,7 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
-        if(data.code === 404){
+        if(data.code === 400){
           title.innerText = ''
           explanation.innerText = ''
         }else{
@@ -63,7 +63,8 @@ function getRandom(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data[0])
-        title.innerText = `${data[0].date} - ${data[0].title}`
+        let dateCor = new Date(data[0].date+'T12:00:00').toLocaleDateString()
+        title.innerText = `${dateCor} - ${data[0].title}`
         explanation.innerText = data[0].explanation
         if(data[0].copyright){
           span.innerText = `\u00A9 ${data[0].copyright}`
