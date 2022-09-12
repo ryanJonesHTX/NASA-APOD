@@ -23,7 +23,7 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
-        if(data.code === 400){
+        if(data.code === 400 || data.code === 404){
           title.innerText = ''
           explanation.innerText = ''
           img.className = 'hide'
